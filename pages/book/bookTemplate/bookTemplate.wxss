@@ -1,0 +1,17 @@
+.bookContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 22rpx;
+}
+.bookImg {
+    width: 200rpx;
+    height: 270rpx;
+    padding-bottom: 10rpx;
+}
+.bookTitle {
+    font-size: 30rpx;
+}
+.author{
+  font-size: 28rpx;
+  color: #b8baba;
+}

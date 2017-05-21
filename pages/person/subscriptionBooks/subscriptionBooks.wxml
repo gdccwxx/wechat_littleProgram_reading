@@ -1,0 +1,53 @@
+<view class="editer">
+  <view class="container">
+    <view class="infoAll">
+      <text>共</text>
+      <text>{{}}</text>
+      <text>本书</text>
+    </view>
+    <view class="editBox" bindtap="editer">
+      <text wx:if="{{editer}}" class="textClass">保存</text>
+      <text wx:if="{{!editer}}" class="textClass">编辑</text>
+    </view>
+  </view>
+
+</view>
+<view class="Infos">
+  <view class="container">
+    <block>
+      <view class="searchResultChild">
+        <image src="/image/bookCoverImage.png" class="bookCoverImage"></image>
+        <view class="resultInfo">
+          <text class="InfoName">设计中的设计</text>
+          <text class="Infos">作者：愿研哉/朱婀</text>
+          <text class="Infos">出版社：山东人民出版社</text>
+          <text class="Infos">预约情况：预约成功</text>
+          <text class="InfoHave">提书日期：2017.05.14（还剩{{}}天）</text>
+        </view>
+        <image src="/image/icon/timg.png" class="deleteIcon" wx:if="{{editer}}"></image>
+      </view>
+      <view class="searchResultChild">
+        <image src="/image/bookCoverImage.png" class="bookCoverImage"></image>
+        <view class="resultInfo">
+          <text class="InfoName">设计中的设计</text>
+          <text class="Infos">作者：愿研哉/朱婀</text>
+          <text class="Infos">出版社：山东人民出版社</text>
+          <text class="Infos">预约情况：预约成功</text>          
+          <text class="InfoHave">提书日期：2017.05.14（还剩{{}}天）</text>
+        </view>
+        <image src="/image/icon/timg.png" class="deleteIcon"  wx:if="{{editer}}"></image>
+      </view>
+      <view class="searchResultChild">
+        <image src="/image/bookCoverImage.png" class="bookCoverImage"></image>
+        <view class="resultInfo">
+          <text class="InfoName">设计中的设计</text>
+          <text class="Infos">作者：愿研哉/朱婀</text>
+          <text class="Infos">出版社：山东人民出版社</text>
+          <text class="Infos">预约情况：预约成功</text>
+          <text class="InfoHave">提书日期：2017.05.14（还剩{{}}天）</text>
+        </view>
+        <image src="/image/icon/timg.png" class="deleteIcon" wx:if="{{editer}}"></image>
+      </view>
+    </block>
+  </view>
+</view>

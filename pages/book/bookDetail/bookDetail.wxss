@@ -1,0 +1,123 @@
+.bookInfos{
+  width: 100%;
+  border-bottom: 15rpx solid #f3f5f5;
+}
+.container{
+  width: 92%;
+  margin: 0 auto;
+}
+.bookInfo{
+  width: 100%;
+  height: 280rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  display: flex;
+  flex-direction: row;
+}
+.bookInfo image {
+  width: 185rpx;
+  height: 280rpx;
+  margin-right: 30rpx;
+}
+.resultInfo{
+  overflow: hidden;
+}
+.resultInfo text{
+  display: block;
+}
+.Infos {
+  font-size: 26rpx;
+  color: #b8baba;
+  margin-top: 10rpx;
+}
+.InfoName{
+  font-size: 32rpx;
+  font-weight: 500;
+}
+.InfoHave{
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.subscriptionBooks{
+  width: 100%;
+  height: 86rpx;
+  background-color: #2fcdcc;
+  color: #ffffff;
+  text-align: center;
+  line-height: 86rpx;
+  border-radius: 8rpx;
+  font-size: 36rpx;
+  font-family: 'Microsoft YaHei';
+  border: 4rpx solid #2fcdcc;
+  letter-spacing: 5rpx;
+  margin-bottom: 30rpx;
+}
+.subscriptionBooks:active{
+  background-color: #ffffff;
+  color: #2fcdcc;
+}
+.brief{
+  height: 88rpx;
+  line-height: 88rpx;
+  padding-left: 30rpx;
+  letter-spacing: 4rpx;
+  border-bottom: 2rpx #eef5f5 solid;
+}
+.brief text{
+  font-size: 26rpx;
+  color: #b8baba;
+}
+.bookBrief{
+  width: 94%;
+  text-indent: 2em;
+  margin: 0rpx 0rpx 10rpx 20rpx;
+  overflow: hidden;
+  line-height: 60rpx;
+  font-size: 26rpx;
+  text-overflow: ellipsis;
+  letter-spacing: 1rpx;
+  color: #b8baba;
+}
+.more{
+  color: #2fcdcc;
+  margin-left: 22rpx;
+  float: right;
+}
+.more image{
+  width: 22rpx;
+  height: 11rpx;
+  margin-bottom: 6rpx;
+  display: inline-block;
+}
+.downArrow{
+  width: 22rpx;
+  height: 11rpx;
+  margin-bottom: 6rpx;
+  float: right;
+  margin-top: 39rpx;
+  margin-right: 30rpx;
+}
+.bookContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 0 22rpx;
+    width: 250rpx;
+}
+.bookImg {
+    width: 200rpx;
+    height: 270rpx;
+    padding-bottom: 10rpx;
+}
+.bookTitle {
+    font-size: 30rpx;
+}
+.author{
+  font-size: 28rpx;
+  color: #b8baba;
+}
+.relationship{
+  width: 100%;
+  margin: 30rpx 0;
+  display: flex;
+  flex-direction: row;
+}

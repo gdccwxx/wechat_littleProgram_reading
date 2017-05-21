@@ -1,0 +1,107 @@
+.InfoContainer {
+  width: 100%;
+  height: 185rpx;
+  border-bottom: 15rpx solid #f6f7f7;
+  display: flex;
+  flex-direction: row;
+}
+
+.userAvatar {
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 50%;
+  margin: 30rpx;
+}
+
+.Infos {
+  width: 500rpx;
+  height: 100%;
+  margin-top: 50rpx;
+}
+
+.userName {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.borrowInfo {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.qrCode {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 70rpx;
+}
+
+.sameHeight {
+  width: 94%;
+  margin: 0 auto;
+  height: 70rpx;
+  padding-top: 20rpx;
+  display: flex;
+  flex-direction: row;
+  border-bottom: 2rpx solid #f6f7f7;
+  justify-content: space-between;
+}
+
+.borrows {
+  width: 100%;
+  border-bottom: 15rpx solid #f6f7f7;
+}
+
+.sameHeightBox {
+  width: 100%;
+}
+
+.sameHeightBox:active {
+  background-color: #f0f0f0;
+}
+
+.sameHeight image {
+  width: 10rpx;
+  height: 20rpx;
+  margin-top: 15rpx;
+}
+
+.infosList {
+  width: 60rpx;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.infosList view {
+  line-height: 50rpx;
+  font-size: 24rpx;
+  color: #b8baba;
+}
+
+.lay-out {
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  background-color: #000;
+  opacity: 0.7;
+}
+
+.container-box {
+  position: absolute;
+  top: 300rpx;
+  z-index: 9999;
+  background-color: #efeff4;
+  margin-left: 16%;
+}
+
+.img-box {
+  width: 500rpx;
+  height: 500rpx;
+  background-color: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+  position: relative;
+}

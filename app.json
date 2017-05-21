@@ -1,0 +1,47 @@
+{
+  "pages": [
+    "pages/book/book",
+    "pages/login/login",
+    "pages/book/bookDetail/bookDetail",
+    "pages/person/subscriptionBooks/subscriptionBooks",
+    "pages/person/person",
+    "pages/book/search/search",
+    "pages/book/bookListTemplate/bookListTemplate",
+    "pages/book/bookTemplate/bookTemplate",
+    "pages/book/search/searchHistory/searchHistory",
+    "pages/book/moreBook/moreBook",
+    "pages/sort/sort"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#2fcdcc",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/sort/sort",
+        "text": "分类",
+        "selectedColor": "#2fcdcc",
+        "iconPath": "/image/icon/sort.png",
+        "selectedIconPath": "/image/icon/sort_selected.png"
+      },
+      {
+        "pagePath": "pages/book/book",
+        "text": "主页",
+        "selectedColor": "#2fcdcc",
+        "iconPath": "/image/icon/home.png",
+        "selectedIconPath": "/image/icon/home_selected.png"
+      },
+      {
+        "pagePath": "pages/person/person",
+        "text": "个人",
+        "selectedColor": "#2fcdcc",
+        "iconPath": "/image/icon/person.png",
+        "selectedIconPath": "/image/icon/person_selected.png"
+      }
+    ]
+  }
+}

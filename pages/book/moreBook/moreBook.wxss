@@ -1,0 +1,9 @@
+@import "../bookTemplate/bookTemplate.wxss";
+.moreBook{
+  width: 99%;
+  margin-top: 30rpx;
+  margin-left: 1%;
+}
+.bookChild{
+  float: left;
+}

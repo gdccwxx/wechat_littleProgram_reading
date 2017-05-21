@@ -1,0 +1,9 @@
+<template name="searchHistory">
+  <view class="searchHistoryChild">
+    <view class="classname">
+      <image src="/image/icon/searchHistoryClock.png" class="clock"></image>
+      <text class="searchHistoryText">人民的民意</text>
+    </view>
+    <image src="/image/icon/cancel.png" class="cancel"></image>
+  </view>
+</template>

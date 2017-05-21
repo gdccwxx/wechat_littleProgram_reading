@@ -1,0 +1,8 @@
+<import src="../bookTemplate/bookTemplate.wxml" />
+<view class="moreBook">
+<block wx:for="{{books}}" wx:for-item="book">
+  <view class="bookChild">
+    <template is="bookTemplate" data="{{...book}}"></template>
+  </view>
+</block>
+</view>

@@ -1,0 +1,44 @@
+@import "../bookTemplate/bookTemplate.wxss";
+
+.bookListContainer {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.innerContainer {
+  margin: 0 auto 20rpx;
+}
+
+.bookHeadr {
+  padding: 30rpx 20rpx 22rpx;
+}
+
+.slogan {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #2fcdcc;
+  letter-spacing: 8rpx;
+}
+
+.more {
+  float: right;
+}
+
+.more-text {
+  vertical-align: middle;
+  margin-right: 10rpx;
+  color: #b8baba;
+  font-size: 25rpx;
+}
+
+.bookViewContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.moreImg {
+  vertical-align: middle;
+  width: 10rpx;
+  height: 20rpx;
+}

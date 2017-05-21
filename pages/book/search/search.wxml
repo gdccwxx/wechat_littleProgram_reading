@@ -1,0 +1,93 @@
+<view class="container">
+  <view class="search">
+    <icon type="search" size="13" color="#b8b9b9" class="iconImg" />
+    <input type="text" placeholder="啦啦啦" placeholder-class="placeholder" focus="{{true}}" bindconfirm="bindConfirms" bindchange="bindchanges" value="{{searchChildData}}" />
+    <view class="sureSearch" bindtap="sureSearch">
+      <text>搜索</text>
+    </view>
+  </view>
+  <block wx:for="{{historys}}" wx:for-item="history" wx:if="{{!clickSearch}}">
+    <view class="searchHistory">
+      <view class="searchHistoryChild">
+        <view class="historyChild"  data-child="{{history}}" bindtap="historySearch">
+          <image src="/image/icon/searchHistoryClock.png" class="clock"></image>
+          <text class="searchHistoryText">{{history}}</text>
+        </view>
+       <view class="cancelContainer" data-child="{{history}}" bindtap="removeChild">
+        <image src="/image/icon/cancel.png" class="cancel" ></image>
+       </view>
+      </view>
+    </view>
+  </block>
+  <view class="searchInfo">
+    <block>
+      <view class="searchChildContainer">
+        <template is="searchTemplate"></template>
+      </view>
+    </block>
+  </view>
+</view>
+
+<view class="moreHistory"  wx:if="{{!isShowDisplayAll && !clickSearch && needShow}}" bindtap="showButton" >
+  <text>显示全部记录</text>
+</view>
+
+<view class="container" wx:if="{{!clickSearch}}">
+  <view class="title">
+    <image src="/image/icon/hot.png" class="hotSearchImage"></image>
+    <text class="hotSearchTitle">热门搜索</text>
+  </view>
+  <view class="hotSearchContainer">
+    <block>
+      <view class="hotSearchChildContainer">
+        <text class="hotSearchChild">人民的民意</text>
+      </view>
+       <view class="hotSearchChildContainer">
+        <text class="hotSearchChild">人民的民意</text>
+      </view>
+       <view class="hotSearchChildContainer">
+        <text class="hotSearchChild">人民意</text>
+      </view>
+       <view class="hotSearchChildContainer">
+        <text class="hotSearchChild">人民的民意</text>
+      </view>
+    </block>
+  </view>
+</view>
+<view class="searchInfo container" wx:if="{{clickSearch}}">
+   <view class="resultCount">
+      <text>搜索结果共{{}}个，可借{{}}个</text>
+   </view>
+   <block>
+      <view class="searchResultChild">
+        <image src="/image/bookCoverImage.png" class="bookCoverImage"></image>
+        <view class="resultInfo">
+          <text class="InfoName">设计中的设计</text>
+          <text class="Infos">作者：愿研哉/朱婀</text>
+          <text class="Infos">出版年：2002.02</text>
+          <text class="Infos">出版社：山东人民出版社</text>
+          <text class="InfoHave">馆藏（5）/可惜（2）</text>
+        </view>
+      </view>
+      <view class="searchResultChild">
+        <image src="/image/bookCoverImage.png" class="bookCoverImage"></image>
+        <view class="resultInfo">
+          <text class="InfoName">设计中的设计</text>
+          <text class="Infos">作者：愿研哉/朱婀</text>
+          <text class="Infos">出版年：2002.02</text>
+          <text class="Infos">出版社：山东人民出版社</text>
+          <text class="InfoHave">馆藏（5）/可惜（2）</text>
+        </view>
+      </view>
+      <view class="searchResultChild">
+        <image src="/image/bookCoverImage.png" class="bookCoverImage"></image>
+        <view class="resultInfo">
+          <text class="InfoName">设计中的设计</text>
+          <text class="Infos">作者：愿研哉/朱婀</text>
+          <text class="Infos">出版年：2002.02</text>
+          <text class="Infos">出版社：山东人民出版社</text>
+          <text class="InfoHave">馆藏（5）/可惜（2）</text>
+        </view>
+      </view>
+   </block>   
+</view>

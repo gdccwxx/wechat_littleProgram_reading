@@ -1,0 +1,6 @@
+text{
+  font-family: 'Microsoft YaHei';
+}
+view {
+  font-family: 'Microsoft YaHei';  
+}

@@ -1,0 +1,62 @@
+<view class="InfoContainer">
+  <image src="{{userInfo.avatarUrl}}" class="userAvatar"></image>
+  <view class="Infos">
+    <view class="userName">{{userInfo.nickName}}</view>
+    <view class="borrowInfo">目前借阅书籍{{}}本，预定{{}}本</view>
+  </view>
+  <image src="../../image/icon/qrCodeIcon.png" class="qrCode" bindtap="drawQrCode"></image>
+</view>
+<view class="borrows">
+  <view class="sameHeightBox">
+    <view class="sameHeight" bindtap="onNowBorrow">
+      <view class="nowBorrow">
+        当前借阅
+      </view>
+      <image src="../../image/icon/rightArrow.png"></image>
+    </view>
+  </view>
+  <view class="sameHeightBox">
+    <view class="sameHeight" bindtap="onBorrowHistory">
+      <view class="borrowHistory">
+        借阅历史
+      </view>
+      <image src="../../image/icon/rightArrow.png"></image>
+    </view>
+  </view>
+  <view class="sameHeightBox">
+    <view class="sameHeight" bindtap="onSubscriptionBooks">
+      <view class="subscriptionBooks">
+        预约图书
+      </view>
+      <image src="../../image/icon/rightArrow.png"></image>
+    </view>
+  </view>
+</view>
+<view class="borrows">
+  <view class="sameHeightBox">
+    <view class="sameHeight " bindtap="onBorrowList">
+      <view class="borrowList">借书清单</view>
+      <view class="infosList">
+        <view>
+          4本
+        </view>
+        <image src="../../image/icon/rightArrow.png"></image>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="borrows">
+  <view class="sameHeightBox">
+    <view class="sameHeight" bindtap="onRecommend">
+      <view class="recommend">
+        推荐频率</view>
+      <image src="../../image/icon/rightArrow.png"></image>
+    </view>
+  </view>
+</view>
+<view class="lay-out" wx:if="{{drawQrCode}}" bindtap="cancelQrCode"></view>
+<view class="container-box" wx:if="{{drawQrCode}}">
+  <view class="img-box">
+    <canvas  hidden="{{canvasHidden}}" style="width: 500rpx;height: 500rpx;background:#f1f1f1;" canvas-id="mycanvas" />
+  </view>
+</view>

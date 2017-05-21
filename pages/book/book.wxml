@@ -1,0 +1,37 @@
+<import src="bookListTemplate/bookListTemplate.wxml" />
+<view class="container">
+  <view class="topInner">
+  <view class="search">
+      <icon type="search" size="13" color="#b8b9b9" class="iconImg" />
+      <input type="text" placeholder="啦啦啦" placeholder-class="placeholder" bindfocus="inBindFocus" />
+      <view class="scanCodeContainer" bindtap="onScanCodeTap">
+        <image src="../../image/icon/scanCode.png" class="scanCode"></image>
+      </view>
+    </view>
+    <view class="swiper">
+      <swiper indicator-dots autoplay>
+        <swiper-item>
+          <image src="../../image/sls.jpg"></image>
+        </swiper-item>
+        <swiper-item>
+          <image src="../../image/vr.png"></image>
+        </swiper-item>
+        <swiper-item>
+          <image src="../../image/xiaolong.jpg"></image>
+        </swiper-item>
+      </swiper>
+    </view>
+    
+  </view>
+</view>
+<view class="booksContainer">
+  <view class="bookTemplate">
+    <template class="bookTemplate" is="bookListTemplate" data="{{...news}}"></template>
+  </view>
+  <view class="bookTemplate">
+    <template class="bookTemplate" is="bookListTemplate" data="{{...classes}}"></template>
+  </view>
+  <view class="bookTemplate">
+    <template class="bookTemplate" is="bookListTemplate" data="{{...recommend}}"></template>
+  </view>
+</view>

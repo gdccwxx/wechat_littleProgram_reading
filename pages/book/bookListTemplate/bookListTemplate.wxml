@@ -1,0 +1,19 @@
+<import src="../bookTemplate/bookTemplate.wxml" />
+<template name="bookListTemplate">
+  <view class="bookListContainer">
+    <view class="innerContainer">
+      <view class="bookHeadr">
+        <text class="slogan">{{categoryTitle}}</text>
+        <view class="more" catchtap="onMoreTap" data-categrory="{{categoryTitle}}">
+          <text class="more-text">更多</text>
+          <image class="moreImg" src="/image/icon/rightArrow.png"></image>
+        </view>
+      </view>
+      <view class="bookViewContainer">
+      <block wx:for="{{books}}" wx:for-item="book">
+        <template is="bookTemplate" data="{{...book}}"/>
+      </block>
+      </view>
+    </view>
+  </view>
+</template>
