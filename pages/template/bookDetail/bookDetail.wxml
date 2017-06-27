@@ -1,4 +1,4 @@
-<import src="../bookTemplate/bookTemplate.wxml" />
+<import src="/pages/template/bookTemplate/bookTemplate.wxml" />
 <view class="bookInfos">
   <view class="container">
     <view class="bookInfo">

@@ -1,7 +1,7 @@
 <view class="container">
   <view class="search">
     <icon type="search" size="13" color="#b8b9b9" class="iconImg" />
-    <input type="text" placeholder="啦啦啦" placeholder-class="placeholder" focus="{{true}}" bindconfirm="bindConfirms" bindchange="bindchanges" value="{{searchChildData}}" />
+    <input type="text" placeholder="书名、作者、ISBN" placeholder-class="placeholder" focus="{{true}}" bindconfirm="bindConfirms" bindchange="bindchanges" value="{{searchChildData}}" />
     <view class="sureSearch" bindtap="sureSearch">
       <text>搜索</text>
     </view>

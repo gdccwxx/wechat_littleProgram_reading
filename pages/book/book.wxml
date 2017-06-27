@@ -1,9 +1,9 @@
-<import src="bookListTemplate/bookListTemplate.wxml" />
+<import src="/pages/template/bookListTemplate/bookListTemplate.wxml" />
 <view class="container">
   <view class="topInner">
   <view class="search">
       <icon type="search" size="13" color="#b8b9b9" class="iconImg" />
-      <input type="text" placeholder="啦啦啦" placeholder-class="placeholder" bindfocus="inBindFocus" />
+      <input type="text" placeholder="书名、作者、ISBN" placeholder-class="placeholder" bindfocus="inBindFocus" />
       <view class="scanCodeContainer" bindtap="onScanCodeTap">
         <image src="../../image/icon/scanCode.png" class="scanCode"></image>
       </view>
@@ -31,7 +31,7 @@
   <view class="bookTemplate">
     <template class="bookTemplate" is="bookListTemplate" data="{{...classes}}"></template>
   </view>
-  <view class="bookTemplate">
+  <view class="bookTemplate" wx:if="{{recommends}}">
     <template class="bookTemplate" is="bookListTemplate" data="{{...recommend}}"></template>
   </view>
 </view>

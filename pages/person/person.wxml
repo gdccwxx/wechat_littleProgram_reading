@@ -8,14 +8,6 @@
 </view>
 <view class="borrows">
   <view class="sameHeightBox">
-    <view class="sameHeight" bindtap="onNowBorrow">
-      <view class="nowBorrow">
-        当前借阅
-      </view>
-      <image src="../../image/icon/rightArrow.png"></image>
-    </view>
-  </view>
-  <view class="sameHeightBox">
     <view class="sameHeight" bindtap="onBorrowHistory">
       <view class="borrowHistory">
         借阅历史
@@ -47,16 +39,18 @@
 </view>
 <view class="borrows">
   <view class="sameHeightBox">
-    <view class="sameHeight" bindtap="onRecommend">
+    <view class="sameHeight">
       <view class="recommend">
-        推荐频率</view>
-      <image src="../../image/icon/rightArrow.png"></image>
+        热门推荐</view>
+      <view class="switchRecommend">
+        <switch bindchange="onRecommend" checked="{{switchRecommend}}" color="#2fcdcc"/>
+      </view>
     </view>
   </view>
 </view>
 <view class="lay-out" wx:if="{{drawQrCode}}" bindtap="cancelQrCode"></view>
 <view class="container-box" wx:if="{{drawQrCode}}">
   <view class="img-box">
-    <canvas  hidden="{{canvasHidden}}" style="width: 500rpx;height: 500rpx;background:#f1f1f1;" canvas-id="mycanvas" />
+    <canvas hidden="{{canvasHidden}}" style="width: 500rpx;height: 500rpx;background:#f1f1f1;" canvas-id="mycanvas" />
   </view>
 </view>

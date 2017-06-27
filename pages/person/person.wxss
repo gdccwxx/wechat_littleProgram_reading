@@ -14,14 +14,13 @@
 }
 
 .Infos {
-  width: 500rpx;
-  height: 100%;
-  margin-top: 50rpx;
+  width: 465rpx;
+  height: 145rpx;
+  margin-top: 40rpx;
 }
 
 .userName {
   font-size: 20px;
-  font-weight: bold;
   margin-bottom: 10rpx;
 }
 
@@ -31,9 +30,9 @@
 }
 
 .qrCode {
-  width: 40rpx;
-  height: 40rpx;
-  margin-top: 70rpx;
+  width: 60rpx;
+  height: 60rpx;
+  margin-top: 60rpx;
 }
 
 .sameHeight {
@@ -47,6 +46,9 @@
   justify-content: space-between;
 }
 
+.switchRecommend{
+  margin-top: -5rpx;
+}
 .borrows {
   width: 100%;
   border-bottom: 15rpx solid #f6f7f7;

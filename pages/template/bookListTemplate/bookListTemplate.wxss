@@ -16,7 +16,6 @@
 
 .slogan {
   font-size: 34rpx;
-  font-weight: 600;
   color: #2fcdcc;
   letter-spacing: 8rpx;
 }

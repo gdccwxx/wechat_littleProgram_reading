@@ -1,5 +1,11 @@
-<text class="title">欢迎加入我们</text>
-<view class="loginBox">
-  <input  />
-  <input  />
+<view class="top">
+  <view class="register">欢迎来到借阅伴侣</view>
+
 </view>
+<view class="nameRegister">注册</view>
+<view class="email">邮箱</view>
+<input type="text" placeholder="请输入邮箱" disable="{{disable}}" bindchange="onchange"/>
+<view class="sureCode">验证码</view>
+<input type="text" placeholder="请输入验证码" disable="{{disable}}" class="sureInput"/>
+<view class="confirm" bindtap="onConfirm">确定</view>
+<view class="haveTo">已有账号登陆</view>

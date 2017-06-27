@@ -2,15 +2,16 @@
   "pages": [
     "pages/book/book",
     "pages/login/login",
-    "pages/book/bookDetail/bookDetail",
+    "pages/person/borrowList/borrowList",
     "pages/person/subscriptionBooks/subscriptionBooks",
+    "pages/sort/sort",
+    "pages/template/bookDetail/bookDetail",
     "pages/person/person",
     "pages/book/search/search",
-    "pages/book/bookListTemplate/bookListTemplate",
-    "pages/book/bookTemplate/bookTemplate",
+    "pages/template/bookListTemplate/bookListTemplate",
+    "pages/template/bookTemplate/bookTemplate",
     "pages/book/search/searchHistory/searchHistory",
-    "pages/book/moreBook/moreBook",
-    "pages/sort/sort"
+    "pages/template/moreBook/moreBook"
   ],
   "window": {
     "backgroundTextStyle": "light",

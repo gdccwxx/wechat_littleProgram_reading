@@ -2,8 +2,8 @@
 Page({
 
   data: {
-    editer: false,
-    length: 0
+    length: 0,
+    history:true
   },
 
   onLoad: function (options) {
@@ -11,7 +11,7 @@ Page({
       title: '设计中的设计',
       author: '愿研哉/朱婀',
       images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
+      sucess: '201.06.17',
       date: '5',
       publish: '山东人民出版社',
       time: '2017,06,21'
@@ -19,7 +19,7 @@ Page({
       title: '设计中的设计',
       author: '愿研哉/朱婀',
       images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
+      sucess: '201.06.17',
       date: '5',
       publish: '山东人民出版社',
       time: '2017,06,22'
@@ -27,7 +27,7 @@ Page({
       title: '设计中的设计',
       author: '愿研哉/朱婀',
       images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
+      sucess: '201.06.17',
       date: '5',
       publish: '山东人民出版社',
       time: '2017,06,23'
@@ -35,17 +35,17 @@ Page({
       title: '设计中的设计',
       author: '愿研哉/朱婀',
       images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
+      sucess: '201.06.17',
       date: '5',
       publish: '山东人民出版社',
       time: '2017,06,24'
     }]
+    if(options.title == 'history'){
+      this.setData({
+        history:false
+      })
+    }
     this.getList(res);
-  },
-  editer: function (event) {
-    this.setData({
-      editer: !this.data.editer
-    })
   },
   getList: function (res) {
     var books = [];
@@ -64,24 +64,7 @@ Page({
     }
     this.setData({
       books,
-      length:res.length
+      length: res.length
     });
-  },
-  deleteChild: function (event) {
-    var current = event.currentTarget.dataset.indexs
-    var that = this
-    var books = this.data.books
-    wx.showModal({
-      title: '删除',
-      content: '是否取消借阅' + books[current].title + '一书?',
-      success: function (res) {
-        if (res.confirm) {
-          books.splice(current, 1);
-        }
-        that.setData({
-          books
-        })
-      }
-    })
   }
 })

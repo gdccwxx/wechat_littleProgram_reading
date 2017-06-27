@@ -2,34 +2,15 @@
 //获取应用实例
 var app = getApp()
 Page({
-  // data: {
-  //   motto: 'Hello World',
-  //   userInfo: {}
-  // },
-  // //事件处理函数
-  // bindViewTap: function() {
-  //   wx.navigateTo({
-  //     url: '../logs/logs'
-  //   })
-  // },
-  // onLoad: function () {
-  //   console.log('onLoad')
-  //   var that = this
-  //   //调用应用实例的方法获取全局数据
-  //   app.getUserInfo(function(userInfo){
-  //     //更新数据
-  //     that.setData({
-  //       userInfo:userInfo
-  //     })
-  //   })
-  // }
   data:{
     news: {},
     classes: {},
     recommend: {},
-    CodeData:null
+    CodeData:null,
+    recommends:true
   },
   onLoad: function (event) {
+    
     var inTheatersUrl = "https://api.douban.com" + "/v2/movie/in_theaters" + "?start=0&count=3";
     var comingSoonUrl = "https://api.douban.com" + "/v2/movie/coming_soon" + "?start=0&count=3";
     var top250Url = "https://api.douban.com" + "/v2/movie/top250" + "?start=0&count=3";
@@ -37,6 +18,18 @@ Page({
     this.getMovieListData(inTheatersUrl, "news", "新书速递");
     this.getMovieListData(comingSoonUrl, "classes", "经典图书");
     this.getMovieListData(top250Url, "recommend", "热门推荐");
+  },
+  onReady:function(event){
+    var recommends = wx.getStorageSync('recommend')
+    if (recommends) {
+      wx.setStorageSync('recommend', true)
+    } else {
+      recommends = false
+      wx.setStorageSync('recommend', false)
+    }
+    this.setData({
+      recommends
+    })
   },
   getMovieListData: function (url, settedKey, categoryTitle) {
     var _this = this;
@@ -55,6 +48,7 @@ Page({
         console.log("failed");
       }
     })
+    console.log(this.data.news)
   },
   inBindFocus:function(event){
     wx.navigateTo({
@@ -64,7 +58,7 @@ Page({
   onMoreTap: function (event) {
     var categrory = event.currentTarget.dataset.categrory;
     wx.navigateTo({
-      url: 'moreBook/moreBook?categrory=' + categrory
+      url: '/pages/template/moreBook/moreBook?categrory=' + categrory
     })
   },
   processDoubanData: function (moviesDouban, settedKey, categoryTitle) {
@@ -103,8 +97,9 @@ Page({
   },
   bookDetail:function(event){
     var title = event.currentTarget.dataset.title;
+    console.log(title);
     wx.navigateTo({
-      url: 'bookDetail/bookDetail?title=' + title
+      url: '/pages/template/bookDetail/bookDetail?title=' + title
     })
   }
 })

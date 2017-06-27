@@ -77,5 +77,12 @@ Page({
         console.log("failed");
       }
     })
+  },
+  bookDetail: function (event) {
+    var title = event.currentTarget.dataset.title;
+    console.log(title);
+    wx.navigateTo({
+      url: '/pages/template/bookDetail/bookDetail?title=' + title
+    })
   }
 })

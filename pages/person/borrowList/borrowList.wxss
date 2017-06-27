@@ -59,6 +59,9 @@
 .resultInfo text {
   display: block;
 }
+.have{
+  display: inline !important;
+}
 
 .Infos {
   font-size: 24rpx;

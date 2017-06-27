@@ -1,2 +1,58 @@
-<!--pages/sort/sort.wxml-->
-<text>pages/sort/sort.wxml</text>
+<view class="sortContainer">
+  <text class="sortTitle">分类</text>
+  <view class="tabSort">
+    <view class="tabBlock">
+      <view class="tabBlockContainer" data-select="0" bindtap="onClass">
+        <image src="/image/icon/library.jpg"></image>
+        <view class="{{selected == 0?'overlayUp':'overlay'}}"></view>
+        <text wx:if="{{selected != 0}}" class="selecteText">文学</text>
+      </view>
+    </view>
+    <view class="tabBlock">
+      <view class="tabBlockContainer" data-select="1" bindtap="onClass">
+        <image src="/image/icon/fashion.jpg"></image>
+        <view class="{{selected == 1?'overlayUp':'overlay'}}"></view>
+        <text wx:if="{{selected != 1}}" class="selecteText">流行</text>
+      </view>
+    </view>
+    <view class="tabBlock">
+      <view class="tabBlockContainer" data-select="2" bindtap="onClass">
+        <image src="/image/icon/cultural.jpg"></image>
+        <view class="{{selected == 2?'overlayUp':'overlay'}}"></view>
+        <text wx:if="{{selected != 2}}" class="selecteText">文化</text>
+      </view>
+    </view>
+    <view class="tabBlock">
+      <view class="tabBlockContainer" data-select="3" bindtap="onClass">
+        <image src="/image/icon/life.jpg"></image>
+        <view class="{{selected == 3?'overlayUp':'overlay'}}"></view>
+        <text wx:if="{{selected != 3}}" class="selecteText">生活</text>
+      </view>
+    </view>
+    <view class="tabBlock">
+      <view class="tabBlockContainer" data-select="4" bindtap="onClass">
+        <image src="/image/icon/economic.jpg"></image>
+        <view class="{{selected == 4?'overlayUp':'overlay'}}"></view>
+        <text wx:if="{{selected != 4}}" class="selecteText">经管</text>
+      </view>
+    </view>
+    <view class="tabBlock">
+      <view class="tabBlockContainer" data-select="5" bindtap="onClass">
+        <image src="/image/icon/technology.png"></image>
+        <view class="{{selected == 5?'overlayUp':'overlay'}}"></view>
+        <text wx:if="{{selected != 5}}" class="selecteText">科技</text>
+      </view>
+    </view>
+  </view>
+  <view class="sortTitle">
+    <text>{{title}}</text>
+  </view>
+  <view class="sortClass">
+    <block wx:for="{{sortClasses}}" wx:for-item="sortClass" wx:for-index="idx">
+      <view class="classes" bindtap="onSelect" data-sortSelect="{{idx}}">
+        <text>{{sortClass.name}}</text>
+        <text>{{sortClass.nums}}本</text>
+      </view>
+    </block>
+  </view>
+</view>

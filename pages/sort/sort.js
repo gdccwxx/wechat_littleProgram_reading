@@ -1,80 +1,32 @@
-// pages/sort/sort.js
+
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    selectArr: ['文学', '流行', '文化', '生活', '经营', '科技'],
+    title: '',
+    sortClasses: []
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  onLoad: function (event) {
+    var selected = wx.getStorageSync('selected') || 0;
+    var sortClasses = [{ name: '文学', nums: '1000' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }, { name: '流行', nums: '2015' }];
+    this.setData({
+      title: this.data.selectArr[selected],
+      selected,
+      sortClasses
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
+  onClass: function (event) {
+    var selected = event.currentTarget.dataset.select
+    this.setData({
+      title: this.data.selectArr[selected],
+      selected
+    })
+    wx.setStorageSync('selected', selected);
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
+  onSelect:function(event){
+    var selected = event.currentTarget.dataset.sortselect
+    wx.navigateTo({
+      url: '/pages/template/moreBook/moreBook?categrory=' + '新书速递'
+    })
   }
 })
