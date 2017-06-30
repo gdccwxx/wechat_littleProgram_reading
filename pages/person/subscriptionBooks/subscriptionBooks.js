@@ -41,6 +41,28 @@ Page({
     //   time: '2017,06,24'
     // }]
     // this.getList(res);
+    wx.request({
+      url: 'https://www.leodevelop.com:8000/user/lendbook', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      data: {
+        wechat: email
+      },
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function (res){
+        console.log(res.data)
+        var lendhistory = res.data.lendhistory
+        that.getList(lendhistory)
+      },
+      fail: function(){
+        wx.showToast({
+          title: '网络连接错误',
+          icon: 'loading',
+          duration: 2000
+        })
+      }
+    })
   },
   editer: function (event) {
     this.setData({
