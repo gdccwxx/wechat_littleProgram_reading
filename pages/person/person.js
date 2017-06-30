@@ -10,55 +10,100 @@ Page({
     imagePath: '',
     placeholder: 'http://www.baidu.com',//默认二维码生成文本
     drawQrCode: false,
-    switchRecommend:true
+    switchRecommend:true,
+    lends: 0,
+    yybook: 0
   },
-
   onLoad: function (options) {
-    var recommend = wx.getStorageSync("recommend");    
+    var recommend = wx.getStorageSync("recommend")
+    var email = wx.getStorageSync('email')
+    console.log(email)
     var that = this
-    wx.getUserInfo({
+    if(email === '') {//判断是否登陆
+      var userInfo = {
+        nickName:'未登录',
+        avatarUrl:'/image/icon/avatar.jpg'
+      }
+      that.setData({
+        userInfo: userInfo,
+      })
+    } else {
+      wx.getUserInfo({
+        success: function (res) {
+          var userInfo = res.userInfo
+          that.setData({
+            userInfo: userInfo,
+          })
+        },
+        fail:function(event){
+          var userInfo = {
+            nickName:'未登录',
+            avatarUrl:'/image/icon/avatar.jpg'
+          }
+          that.setData({
+            userInfo: userInfo,
+          })
+        },
+      })
+    }
+    that.setData({
+      switchRecommend: recommend,
+      email: email
+    })//获取借阅书籍数目
+    wx.request({
+      url: 'https://www.leodevelop.com:8000/user/lendbook', //仅为示例，并非真实的接口地址
+      method: 'POST',
+      data: {
+        wechat: email
+      },
+      header: {
+        'content-type': 'application/json'
+      },
       success: function (res) {
-        var userInfo = res.userInfo
-        that.setData({
-          userInfo: userInfo,
+        console.log(res.data)
+        var lends = res.data.lendbook.length
+        this.setData({
+          lends: lends
         })
-      },
-      fail:function(event){
-        var userInfo = {
-          nickName:'未登录',
-          avatarUrl:'/image/icon/avatar.jpg'
-        }
-        that.setData({
-          userInfo: userInfo,
-        })
-      },
-      
+      }
     })
-    this.setData({
-      switchRecommend: recommend
-
-    })
-  },//跳转到节约历史
+  },//跳转到借阅历史
   onBorrowHistory:function(event){
     wx.navigateTo({
       url: "/pages/person/borrowList/borrowList?title=history",
     })
+  },//跳转账户登录
+  onToLogin:function(event){
+    wx.navigateTo({
+      url: "/pages/login/login",
+    })
   },
   drawQrCode: function (e) {
     var that = this;
-    var url = 'www.baidu.com';
-    that.setData({
-      maskHidden: false,
-    });
+    wx.getUserInfo({
+      success: function(res) {
+        var userInfo = res.userInfo
+        var nickName = userInfo.nickName
+        var avatarUrl = userInfo.avatarUrl
+        var province = userInfo.province
+        var city = userInfo.city
+        var email = wx.getStorageSync("email");
+        var url = nickName + ' ' + province + ' ' + city + ' ' + email 
+         console.log(url)
+        that.setData({
+          maskHidden: false,
+        });
 
-    var size = that.setCanvasSize();
-    //绘制二维码
-    that.createQrCode(url, "mycanvas", size.w, size.h);
-    that.setData({
-      maskHidden: true
-    });
-    this.setData({
-      drawQrCode: true
+        var size = that.setCanvasSize();
+        //绘制二维码
+        that.createQrCode(url, "mycanvas", size.w, size.h);
+        that.setData({
+          maskHidden: true
+        });
+        that.setData({
+          drawQrCode: true
+        })
+      }
     })
   },//跳转到预约图书
   onSubscriptionBooks: function (event) {
