@@ -2,10 +2,18 @@
   <view class="register">欢迎来到借阅伴侣</view>
 
 </view>
-<view class="nameRegister">注册</view>
-<view class="email">邮箱</view>
-<input type="text" placeholder="请输入邮箱" disable="{{disable}}" bindchange="onchange"/>
-<view class="sureCode">验证码</view>
-<input type="text" placeholder="请输入验证码" disable="{{disable}}" class="sureInput"/>
-<view class="confirm" bindtap="onConfirm">确定</view>
-<view class="haveTo">已有账号登陆</view>
+<view class="nameRegister">注册/登陆</view>
+<view>
+  <view class="email">邮箱</view>
+  <input type="text" placeholder="请输入邮箱" bindchange="onchange"/>
+</view>
+<view class="{{flag}}">
+  <view class="sureCode">验证码</view>
+  <input type="text" placeholder="请输入验证码" class="sureInput" bindchange="onVircode"/>
+</view>
+<view class="{{ycode}}">
+  <view class="confirm" bindtap="onConfirm">确定</view>
+</view>
+<view class="{{flag}}">
+  <view class="haveTo" bindtap="onLogin">注册账号登陆</view>
+</view>

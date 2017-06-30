@@ -1,8 +1,8 @@
 <view class="InfoContainer">
-  <image src="{{userInfo.avatarUrl}}" class="userAvatar"></image>
+  <image src="{{userInfo.avatarUrl}}" class="userAvatar" bindtap="onToLogin"></image>
   <view class="Infos">
     <view class="userName">{{userInfo.nickName}}</view>
-    <view class="borrowInfo">目前借阅书籍{{}}本，预定{{}}本</view>
+    <view class="borrowInfo">目前借阅书籍{{lends}}本，预定{{yybook}}本</view>
   </view>
   <image src="../../image/icon/qrCodeIcon.png" class="qrCode" bindtap="drawQrCode"></image>
 </view>

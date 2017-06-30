@@ -7,40 +7,40 @@ Page({
   },
 
   onLoad: function (options) {
-    var res = [{
-      title: '设计中的设计',
-      author: '愿研哉/朱婀',
-      images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
-      date: '5',
-      publish: '山东人民出版社',
-      time: '2017,06,21'
-    }, {
-      title: '设计中的设计',
-      author: '愿研哉/朱婀',
-      images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
-      date: '5',
-      publish: '山东人民出版社',
-      time: '2017,06,22'
-    }, {
-      title: '设计中的设计',
-      author: '愿研哉/朱婀',
-      images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
-      date: '5',
-      publish: '山东人民出版社',
-      time: '2017,06,23'
-    }, {
-      title: '设计中的设计',
-      author: '愿研哉/朱婀',
-      images: '/image/bookCoverImage.png',
-      sucess: '预约成功',
-      date: '5',
-      publish: '山东人民出版社',
-      time: '2017,06,24'
-    }]
-    this.getList(res);
+    // var res = [{
+    //   title: '设计中的设计',
+    //   author: '愿研哉/朱婀',
+    //   images: '/image/bookCoverImage.png',
+    //   sucess: '预约成功',
+    //   date: '5',
+    //   publish: '山东人民出版社',
+    //   time: '2017,06,21'
+    // }, {
+    //   title: '设计中的设计',
+    //   author: '愿研哉/朱婀',
+    //   images: '/image/bookCoverImage.png',
+    //   sucess: '预约成功',
+    //   date: '5',
+    //   publish: '山东人民出版社',
+    //   time: '2017,06,22'
+    // }, {
+    //   title: '设计中的设计',
+    //   author: '愿研哉/朱婀',
+    //   images: '/image/bookCoverImage.png',
+    //   sucess: '预约成功',
+    //   date: '5',
+    //   publish: '山东人民出版社',
+    //   time: '2017,06,23'
+    // }, {
+    //   title: '设计中的设计',
+    //   author: '愿研哉/朱婀',
+    //   images: '/image/bookCoverImage.png',
+    //   sucess: '预约成功',
+    //   date: '5',
+    //   publish: '山东人民出版社',
+    //   time: '2017,06,24'
+    // }]
+    // this.getList(res);
   },
   editer: function (event) {
     this.setData({

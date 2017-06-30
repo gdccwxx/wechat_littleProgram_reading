@@ -49,6 +49,15 @@ input {
   color: #666;
 }
 
+.hide-sureCode{
+  float: left;
+  display: none;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  margin-top: 50rpx;
+  color: #666;
+}
+
 .confirm{
   float: left;
   width: 94%;
@@ -77,4 +86,7 @@ input {
   border: 4rpx solid #000;
   border-radius: 8rpx;
   margin-left: 2%;
+}
+.hide {
+  display: none
 }
