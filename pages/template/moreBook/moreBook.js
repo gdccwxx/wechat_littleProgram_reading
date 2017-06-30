@@ -12,19 +12,41 @@ Page({
     })
     switch (categrory) {
       case "新书速递":
-        dataUrl = "https://api.douban.com" + "/v2/movie/in_theaters"
+        dataUrl = "https://www.leodevelop.com:8000/book/newbook/20"
+        this.http(dataUrl, this.processDoubanData);
         break;
       case "经典图书":
-        dataUrl = "https://api.douban.com" + "/v2/movie/coming_soon"
+        dataUrl = "https://www.leodevelop.com:8000/book/oldbook/20"
+        this.http(dataUrl, this.processDoubanData);
         break;
       case "热门推荐":
         dataUrl = "https://api.douban.com" + "/v2/movie/top250"
+        this.http(dataUrl, this.processDoubanData);
         break;
+      default:
+        dataUrl = "https://www.leodevelop.com:8000/tag/books"
+        wx.request({
+          url: dataUrl,
+          method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+          header: {
+            "Content-Type": "json"
+          }, // 设置请求的 header
+          data:{
+            name:categrory
+          },
+          success: function (res) {
+            // success
+            console.log(res.data)
+          },
+          fail: function (res) {
+            // fail
+            console.log("failed");
+          }
+        })
     }
     this.setData({
       dataUrl
     })
-    this.http(dataUrl, this.processDoubanData);
   },
   onScrollLower: function (event) {
 

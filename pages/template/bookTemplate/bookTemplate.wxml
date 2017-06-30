@@ -1,5 +1,5 @@
 <template name="bookTemplate">
-    <view class="bookContainer" data-title="{{title}}" bindtap="bookDetail">
+    <view class="bookContainer" data-title="{{movieId}}" bindtap="bookDetail">
         <image class="bookImg" src="{{coverImg}}"></image>
         <text class="bookTitle">{{title}}</text>
         <text class="author">{{average}}</text>

@@ -5,8 +5,8 @@ Page({
     searchData: "",
     isShowDisplayAll: false,
     needShow: false,
-    clickSearch:false,
-    searchChildData:""
+    clickSearch: false,
+    searchChildData: ""
   },
   onLoad: function (options) {
     this.showHistory()
@@ -15,9 +15,10 @@ Page({
     var search = event instanceof Array ? event : wx.getStorageSync('searchHistory') || [];
     var modify = event.detail.value.trim();
     var needShow = false;
-    if (modify == "" && this.data.clickSearch == true){
+    var that = this
+    if (modify == "" && this.data.clickSearch == true) {
       this.setData({
-        clickSearch : false
+        clickSearch: false
       })
     }
     if (modify == "") {
@@ -33,9 +34,28 @@ Page({
       search.reverse().splice(3, search.length - 1);
     }
     this.showHistory()
+    wx.request({
+      url: 'https://www.leodevelop.com:8000/book/search',
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "application/json"
+      }, // 设置请求的 header
+      data: {
+        searchStr: that.data.searchData
+      },
+      success: function (res) {
+        // success
+        console.log(res.data)
+      },
+      fail: function (res) {
+        // fail
+        console.log("failed");
+      }
+    })
+    console.log(that.data.searchData)
     this.setData({
       needShow,
-      clickSearch:true
+      clickSearch: true
     })
   },
   bindchanges: function (event) {
@@ -47,11 +67,12 @@ Page({
     if (this.data.searchData.trim() == "" && this.data.clickSearch == true) {
       console.log(123)
       this.setData({
-        clickSearch:false
+        clickSearch: false
       })
     }
     if (this.data.searchData.trim() != "") {
       var data = wx.getStorageSync('searchHistory') || [];
+      var that = this
       var needShow = false;
       data.push(this.data.searchData.trim());
       data = this.cleanRepeatData(data);
@@ -61,13 +82,31 @@ Page({
       wx.setStorageSync('searchHistory', data)
       if (!this.data.isShowDisplayAll) {
         data.reverse().splice(3, data.length - 1);
-      }else {
+      } else {
         data.reverse()
       }
+      wx.request({
+        url: 'https://www.leodevelop.com:8000/book/search',
+        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+        header: {
+          "Content-Type": "application/json"
+        }, // 设置请求的 header
+        data: {
+          searchStr: that.data.searchData
+        },
+        success: function (res) {
+          // success
+          console.log(res.data)
+        },
+        fail: function (res) {
+          // fail
+          console.log("failed");
+        }
+      })
       this.setData({
         historys: data,
         needShow,
-        clickSearch:true
+        clickSearch: true
       })
     }
   },
@@ -98,7 +137,7 @@ Page({
     if (this.data.needShow) {
       this.setData({
         isShowDisplayAll: true,
-        
+
       })
       this.showHistory();
     }
@@ -116,9 +155,9 @@ Page({
       })
     }
   },
-  historySearch:function(event){
+  historySearch: function (event) {
     this.setData({
-      searchData:event.currentTarget.dataset.child,
+      searchData: event.currentTarget.dataset.child,
       searchChildData: event.currentTarget.dataset.child
     })
     this.sureSearch()

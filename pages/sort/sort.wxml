@@ -49,7 +49,7 @@
   </view>
   <view class="sortClass">
     <block wx:for="{{sortClasses}}" wx:for-item="sortClass" wx:for-index="idx">
-      <view class="classes" bindtap="onSelect" data-sortSelect="{{idx}}">
+      <view class="classes" bindtap="onSelect" data-sortSelect="{{sortClass.name}}">
         <text>{{sortClass.name}}</text>
         <text>{{sortClass.nums}}本</text>
       </view>

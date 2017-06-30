@@ -2,17 +2,17 @@
 <view class="bookInfos">
   <view class="container">
     <view class="bookInfo">
-      <image src="/image/bookCoverImage.png"></image>
+      <image src="{{imgUrl}}"></image>
       <view class="resultInfo">
-        <text class="InfoName">设计中的设计</text>
-        <text class="Infos">作者：愿研哉/朱婀</text>
-        <text class="Infos">分类：文学类</text>
-        <text class="Infos">出版年：2002.02</text>
-        <text class="Infos">出版社：山东人民出版社</text>
-        <text class="InfoHave">馆藏（5）/可惜（2）</text>
+        <text class="InfoName">{{title}}</text>
+        <text class="Infos">作者：{{author}}</text>
+        <text class="Infos">分类：{{type}}</text>
+        <text class="Infos">出版年：{{publishYear}}</text>
+        <text class="Infos">出版社：{{publish}}</text>
+        <text class="InfoHave">馆藏（{{haveNum}}）/可惜（{{storeNum}}）</text>
       </view>
     </view>
-    <view class="subscriptionBooks">
+    <view class="subscriptionBooks" bindtap="clickSubscription">
       {{titles}}
     </view>
   </view>
@@ -48,20 +48,12 @@
     相关书籍
   </view>
   <view class="relationship">
-    <view class="bookContainer" data-title="{{title}}" bindtap="bookDetail">
-        <image class="bookImg" src="/image/bookCoverImage.png"></image>
-        <text class="bookTitle">设计中的设计</text>
-        <text class="author">设计的作者</text>
+    <block wx:for="{{about}}" wx:for-item="abouts">
+    <view class="bookContainer" data-title="{{abouts.movieId}}" bindtap="bookDetail">
+        <image class="bookImg" src="{{abouts.coverImg}}"></image>
+        <text class="bookTitle">{{abouts.title}}</text>
+        <text class="author">{{abouts.author}}</text>
     </view>
-    <view class="bookContainer" data-title="{{title}}" bindtap="bookDetail">
-        <image class="bookImg" src="/image/bookCoverImage.png"></image>
-        <text class="bookTitle">设计中的设计</text>
-        <text class="author">设计的作者</text>
-    </view>
-    <view class="bookContainer" data-title="{{title}}" bindtap="bookDetail">
-        <image class="bookImg" src="/image/bookCoverImage.png"></image>
-        <text class="bookTitle">设计中的设计</text>
-        <text class="author">设计的作者</text>
-    </view>
+    </block>
   </view>
 </view>

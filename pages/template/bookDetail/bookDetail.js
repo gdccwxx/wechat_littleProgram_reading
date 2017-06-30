@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    clickMore:false
+    clickMore: false,
+    book: {},
+    about:[]
   },
 
   /**
@@ -13,26 +15,126 @@ Page({
    */
   onLoad: function (options) {
     var titles = '加入书单'
-    if(options.scanCode == undefined) {
+    if (options.scanCode == undefined) {
       titles = '在线预约';
     }
+    var that = this
+    wx.request({
+      url: 'https://www.leodevelop.com:8000/book/isbn/' + options.id,
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "json"
+      }, // 设置请求的 header
+      success: function (res) {
+        // success
+        var data = res.data
+        var authors = res.data.author.join('/')
+        that.setData({
+          brief: data.summary,
+          dataBrief: data.summary,
+          titles,
+          publish: data.publisher,
+          title: data.title,
+          haveNum: data.storeNum + data.lendNum,
+          storeNum: data.storeNum,
+          author: authors,
+          imgUrl: data.imgUrl,
+          catlog: data.catalog
+
+        })
+      },
+      fail: function (res) {
+        // fail
+        console.log("failed");
+      }
+    })
     this.setData({
-      brief:" 《红楼梦》是一部百科全书式的长篇小说。以宝黛爱情悲剧为主线，以四大家族的荣辱兴衰为背景，描绘出18世纪中国封建社会的方方面面，以及封建专制下新兴资本主义民主思想的萌动。结构宏大、情节委婉、细节精致，人物形象栩栩如生，声口毕现，堪称中国古代小说中的经 典。",
+      isbn: options.id,
       titles
     })
     this.show();
+    this.getAbout();
   },
-  show:function(event){
-    var dataBrief = this.data.brief.trim().substring(0, 68) + "......";
-    console.log(dataBrief)
+  show: function (event) {
+    var dataBrief = this.data.brief
     this.setData({
       dataBrief
     })
   },
-  onMoreTap:function(event){
+  onMoreTap: function (event) {
     this.setData({
-      clickMore:true,
-      dataBrief:this.data.brief
+      clickMore: true,
+      dataBrief: this.data.brief
+    })
+  },
+  getAbout: function (event) {
+    var that = this
+    wx.request({
+      url: 'https://www.leodevelop.com:8000/book/about/' + this.data.isbn,
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "json"
+      }, // 设置请求的 header
+      success: function (res) {
+        // success
+        var data = res.data
+        // console.log(res.data)
+        // console.log(data)
+        var authors = res.data.author
+        var movies = [];
+        for (var idx in res.data) {
+          var subject = res.data[idx];
+          var title = subject.title;
+          if (title.length >= 6) {
+            title = title.substring(0, 6) + '...';
+          }
+          var temp = {
+            title: title,
+            author: subject.author,
+            coverImg: subject.imgUrl,
+            movieId: subject.isbn13
+          }
+          movies.push(temp);
+        }
+        that.setData({
+          about:movies
+        })
+      },
+      fail: function (res) {
+        // fail
+        console.log("failed");
+      }
+    })
+  },
+  bookDetail: function (event) {
+    var title = event.currentTarget.dataset.title;
+    wx.navigateTo({
+      url: '/pages/template/bookDetail/bookDetail?id=' + title
+    })
+  },
+  clickSubscription:function(event){
+    var email = wx.getStorageSync('email')
+    var wechat = wx.getStorageSync('wechat')
+    var that = this
+    wx.request({
+      url: 'https://www.leodevelop.com:8000/user/submitappoint',
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      header: {
+        "Content-Type": "json"
+      }, // 设置请求的 header
+      data:{
+        wechat:'lcdxh',
+        isbn: that.data.isbn
+      },
+      success: function (res) {
+        // success
+        var data = res.data
+        console.log(data)
+      },
+      fail: function (res) {
+        // fail
+        console.log("failed");
+      }
     })
   }
 })
