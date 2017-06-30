@@ -2,16 +2,27 @@
 Page({
   data: {
     length: 0,
-    history:true
+    history:false
   },
   onLoad: function (options) {
     var email = wx.getStorageSync('email')
     var that = this
+    if(options.title == 'history'){
+      that.setData({
+        history: true
+      })
+    }
+    var url
+    if(this.data.history === true){
+      url = 'https://www.leodevelop.com:8000/user/lendhistory'
+    } else {
+      url = 'https://www.leodevelop.com:8000/user/lendbook'
+    }
     wx.request({
-      url: 'https://www.leodevelop.com:8000/user/lendhistory', //仅为示例，并非真实的接口地址
+      url: url, //仅为示例，并非真实的接口地址
       method: 'POST',
       data: {
-        wechat: 'lcdxlh@126.com'
+        wechat: email
       },
       header: {
         'content-type': 'application/json'
@@ -29,48 +40,12 @@ Page({
         })
       }
     })
-    // var res = [{
-    //   title: '设计中的设计',
-    //   author: '愿研哉/朱婀',
-    //   images: '/image/bookCoverImage.png',
-    //   sucess: '201.06.17',
-    //   date: '5',
-    //   publish: '山东人民出版社',
-    //   time: '2017,06,21'
-    // }, {
-    //   title: '设计中的设计',
-    //   author: '愿研哉/朱婀',
-    //   images: '/image/bookCoverImage.png',
-    //   sucess: '201.06.17',
-    //   date: '5',
-    //   publish: '山东人民出版社',
-    //   time: '2017,06,22'
-    // }, {
-    //   title: '设计中的设计',
-    //   author: '愿研哉/朱婀',
-    //   images: '/image/bookCoverImage.png',
-    //   sucess: '201.06.17',
-    //   date: '5',
-    //   publish: '山东人民出版社',
-    //   time: '2017,06,23'
-    // }, {
-    //   title: '设计中的设计',
-    //   author: '愿研哉/朱婀',
-    //   images: '/image/bookCoverImage.png',
-    //   sucess: '201.06.17',
-    //   date: '5',
-    //   publish: '山东人民出版社',
-    //   time: '2017,06,24'
-    // }]
-    if(options.title == 'history'){
-      this.setData({
-        history:false
-      })
-    }
+    
     // this.getList(res);
   },
   getList: function (res) {
     var books = [];
+    var length = res.length
     for (var idx in res) {
       var subject = res[idx];
       var temp = {
@@ -86,7 +61,7 @@ Page({
     }
     this.setData({
       books: books,
-      length: res.length
+      length: length
     })
   }
 })
